@@ -1,4 +1,6 @@
 @import "tailwindcss";
 
+@source not "../../../ios";
+
 @plugin "@tailwindcss/forms";
 @plugin "@tailwindcss/typography";

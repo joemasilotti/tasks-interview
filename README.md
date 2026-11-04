@@ -60,6 +60,27 @@ Rails server process and a local Tailwind process. To start them, run:
 bin/dev
 ```
 
+### iOS App (Hotwire Native)
+
+`ios/` holds a small [Hotwire Native](https://native.hotwired.dev) iOS app that
+loads this Rails app in a native shell. It needs Xcode 16 or later. You don't
+need it to run or work on the Rails app.
+
+1. Start the Rails app with `bin/dev`.
+2. Open `ios/TasksInterview.xcodeproj` in Xcode.
+3. Pick an iPhone simulator and run the `TasksInterview` scheme.
+
+The app loads `http://localhost:3000`. If your server runs on another port, set
+`SERVER_URL` under the scheme's Run > Arguments > Environment Variables.
+
+The app registers one bridge component, `button` (`ios/TasksInterview/Bridge/ButtonComponent.swift`).
+On `connect` it shows a navigation bar button with the `title` it was sent, and
+it replies to `connect` when the button is tapped. The web side of the component
+is not built yet; the Hotwire Native bridge library is pinned in the import map.
+
+If you change `ios/project.yml`, regenerate the project with `xcodegen generate`
+(`brew install xcodegen`).
+
 ## Claude Code
 
 This repo includes custom [Claude Code](https://claude.com/claude-code) tooling

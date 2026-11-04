@@ -63,7 +63,8 @@ bin/dev
 ### iOS App (Hotwire Native)
 
 `ios/` holds a small [Hotwire Native](https://native.hotwired.dev) iOS app that
-loads this Rails app in a native shell. It needs Xcode 16 or later.
+loads this Rails app in a native shell. It needs Xcode 16 or later. You don't
+need it to run or work on the Rails app.
 
 1. Start the Rails app with `bin/dev`.
 2. Open `ios/TasksInterview.xcodeproj` in Xcode.

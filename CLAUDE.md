@@ -15,6 +15,8 @@ for it, not preemptively.
 - RSpec + FactoryBot + Faker for tests
 - Authentication is session-based and hand-rolled (`has_secure_password`,
   `current_user`) — no Devise. Leave it that way unless asked.
+- `ios/` is an optional Hotwire Native iOS app that loads these pages; see the
+  README. The Rails app doesn't depend on it.
 
 ## Code style
 

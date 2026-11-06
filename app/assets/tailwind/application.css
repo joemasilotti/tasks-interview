@@ -4,3 +4,9 @@
 
 @plugin "@tailwindcss/forms";
 @plugin "@tailwindcss/typography";
+
+@layer components {
+  .btn {
+    @apply p-1 border rounded bg-gray-100 hover:bg-gray-200 cursor-pointer;
+  }
+}

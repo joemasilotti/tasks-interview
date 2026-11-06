@@ -4,9 +4,9 @@
   <%- @tasks.each do |task| %>
     <div class="flex gap-x-8">
       <%- if task.completed_at? %>
-        <%= button_to "Undo", task_completion_path(task), method: :delete, class: "p-1 border rounded bg-gray-100 hover:bg-gray-200 cursor-pointer" %>
+        <%= button_to "Undo", task_completion_path(task), method: :delete, class: "btn" %>
       <%- else %>
-        <%= button_to "Complete", task_completion_path(task), class: "p-1 border rounded bg-gray-100 hover:bg-gray-200 cursor-pointer" %>
+        <%= button_to "Complete", task_completion_path(task), class: "btn" %>
       <%- end %>
       <h2 class="<%= class_names("text-lg font-semibold shrink-0", "line-through": task.completed_at?) %>"><%= task.title %></h2>
       <div><%= task.completed_at? ? "Complete" : "Incomplete" %></div>

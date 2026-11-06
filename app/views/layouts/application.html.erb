@@ -18,6 +18,10 @@
         </div>
       <%- end %>
 
+      <%- if flash[:alert] %>
+        <div class="mb-4 p-3 border rounded bg-red-50 border-red-300 text-red-800"><%= flash[:alert] %></div>
+      <%- end %>
+
       <%= yield %>
     </main>
   </body>

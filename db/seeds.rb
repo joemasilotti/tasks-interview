@@ -22,22 +22,22 @@ end
 # to chew on. A few descriptions are left blank to exercise the index view's
 # nil-safe truncation.
 tasks = [
-  {title: "Book flights to Lisbon", complete: true, description: "Outbound May 3, return May 17. Aisle seats for both legs."},
-  {title: "Book hotel in Kyoto", complete: false, description: "Ryokan near Gion, 4 nights, breakfast included."},
-  {title: "Book airport transfer", complete: false, description: nil},
-  {title: "Confirm client itinerary", complete: false, description: "Send the day-by-day plan to the Hendricks party for sign-off."},
-  {title: "Email client welcome packet", complete: true, description: "Visa reminders, packing list, emergency contacts."},
-  {title: "Renew passport", complete: false, description: "Expedited — current one expires in under six months."},
-  {title: "Update travel insurance", complete: false, description: nil},
-  {title: "Draft Q3 trip budget", complete: false, description: "Roll up supplier quotes and a 12% contingency."},
-  {title: "Review supplier contracts", complete: true, description: "Check cancellation windows before the deposit deadline."},
-  {title: "Schedule team offsite", complete: false, description: "Two days, somewhere reachable by train for everyone."},
-  {title: "Reconcile expense report", complete: false, description: "March card statement against the receipts folder."},
-  {title: "Plan Patagonia route", complete: false, description: "El Chaltén to Torres del Paine, padding for weather days."},
-  {title: "Order currency for Japan", complete: false, description: nil},
-  {title: "Sync with ground operator", complete: true, description: "Confirm the driver and guide for the Marrakech leg."},
-  {title: "Archive old itineraries", complete: false, description: "Anything from last season can move to cold storage."},
-  {title: "follow up with Lisbon hotel", complete: false, description: "Lowercase on purpose — still waiting on the room upgrade."}
+  {title: "Book flights to Lisbon", completed_at: Time.current, description: "Outbound May 3, return May 17. Aisle seats for both legs."},
+  {title: "Book hotel in Kyoto", description: "Ryokan near Gion, 4 nights, breakfast included."},
+  {title: "Book airport transfer", description: nil},
+  {title: "Confirm client itinerary", description: "Send the day-by-day plan to the Hendricks party for sign-off."},
+  {title: "Email client welcome packet", completed_at: Time.current, description: "Visa reminders, packing list, emergency contacts."},
+  {title: "Renew passport", description: "Expedited — current one expires in under six months."},
+  {title: "Update travel insurance", description: nil},
+  {title: "Draft Q3 trip budget", description: "Roll up supplier quotes and a 12% contingency."},
+  {title: "Review supplier contracts", completed_at: Time.current, description: "Check cancellation windows before the deposit deadline."},
+  {title: "Schedule team offsite", description: "Two days, somewhere reachable by train for everyone."},
+  {title: "Reconcile expense report", description: "March card statement against the receipts folder."},
+  {title: "Plan Patagonia route", description: "El Chaltén to Torres del Paine, padding for weather days."},
+  {title: "Order currency for Japan", description: nil},
+  {title: "Sync with ground operator", completed_at: Time.current, description: "Confirm the driver and guide for the Marrakech leg."},
+  {title: "Archive old itineraries", description: "Anything from last season can move to cold storage."},
+  {title: "follow up with Lisbon hotel", description: "Lowercase on purpose — still waiting on the room upgrade."}
 ]
 
 tasks.each do |attributes|
@@ -45,10 +45,10 @@ tasks.each do |attributes|
 end
 
 legacy_tasks = [
-  {title: "Buy tickets: book the 9am AA flight to Cancun", complete: false},
-  {title: "Call hotel: confirm the late checkout for the Rivera party", complete: false},
-  {title: "Passport: renew before the Japan trip", complete: true},
-  {title: "Insurance: add the Patagonia leg to the policy", complete: false}
+  {title: "Buy tickets: book the 9am AA flight to Cancun"},
+  {title: "Call hotel: confirm the late checkout for the Rivera party"},
+  {title: "Passport: renew before the Japan trip", completed_at: Time.current},
+  {title: "Insurance: add the Patagonia leg to the policy"}
 ]
 
 legacy_tasks.each do |attributes|

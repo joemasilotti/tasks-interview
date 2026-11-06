@@ -2,12 +2,13 @@ class TasksController < ApplicationController
   before_action :authenticate_user
 
   def index
-    @tasks = Task.order(:id)
+    @tasks = Task.includes(:assignee).order(:id)
     @task = Task.new
   end
 
   def edit
     @task = Task.find(params[:id])
+    @users = User.order(:name)
   end
 
   def create
@@ -16,7 +17,7 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to tasks_path
     else
-      @tasks = Task.order(:id)
+      @tasks = Task.includes(:assignee).order(:id)
       flash.now[:alert] = @task.errors.full_messages.to_sentence
       render :index, status: :unprocessable_content
     end
@@ -28,6 +29,7 @@ class TasksController < ApplicationController
     if @task.update(task_params)
       redirect_to tasks_path
     else
+      @users = User.order(:name)
       flash.now[:alert] = @task.errors.full_messages.to_sentence
       render :edit, status: :unprocessable_content
     end
@@ -46,6 +48,6 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title, :description)
+    params.require(:task).permit(:title, :description, :assignee_id)
   end
 end

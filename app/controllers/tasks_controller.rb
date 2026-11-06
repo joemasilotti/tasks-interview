@@ -3,6 +3,7 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.order(:id)
+    @task = Task.new
   end
 
   def edit
@@ -15,7 +16,9 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to tasks_path
     else
-      # TODO: handle
+      @tasks = Task.order(:id)
+      flash.now[:alert] = @task.errors.full_messages.to_sentence
+      render :index, status: :unprocessable_content
     end
   end
 
@@ -25,7 +28,8 @@ class TasksController < ApplicationController
     if @task.update(task_params)
       redirect_to tasks_path
     else
-      # TODO: handle
+      flash.now[:alert] = @task.errors.full_messages.to_sentence
+      render :edit, status: :unprocessable_content
     end
   end
 
@@ -35,7 +39,7 @@ class TasksController < ApplicationController
     if @task.destroy
       redirect_to tasks_path
     else
-      # TODO: handle
+      redirect_to tasks_path, alert: "Could not delete task."
     end
   end
 

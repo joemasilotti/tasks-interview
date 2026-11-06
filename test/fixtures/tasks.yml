@@ -3,9 +3,7 @@
 one:
   title: MyString
   description: MyText
-  complete: false
 
 two:
   title: MyString
   description: MyText
-  complete: false
